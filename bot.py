@@ -25,7 +25,6 @@ async def on_ready():
 
 @bot.command()
 async def pr_status(ctx, repo_name: str, pr_number: int):
-    """Check the status of a pull request."""
     try:
         repo = g.get_repo(repo_name)
         pr = repo.get_pull(pr_number)
@@ -37,7 +36,6 @@ async def pr_status(ctx, repo_name: str, pr_number: int):
 
 @bot.command()
 async def notify_pr(ctx, repo_name: str):
-    """Notify about new PRs in a repository."""
     try:
         repo = g.get_repo(repo_name)
         prs = repo.get_pulls(state='open')
@@ -52,7 +50,6 @@ async def notify_pr(ctx, repo_name: str):
 
 @app.route('/webhook', methods=['POST'])
 def github_webhook():
-    """Handle GitHub webhook events."""
     data = request.json
     action = data.get('action')
     repo_name = data['repository']['full_name']
