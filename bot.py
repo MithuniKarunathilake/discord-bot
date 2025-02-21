@@ -1,7 +1,5 @@
 import discord
 import os
-import requests
-from github import Github
 from discord.ext import commands
 from flask import Flask, request
 
